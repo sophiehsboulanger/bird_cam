@@ -34,6 +34,8 @@ def run_birdcam(DEBUG):
 
 
     while True:
+        if DEBUG:
+            print("running")
         success, img = cap.read()
         #results = model(img, stream=True)
         results = model.predict(img, classes=[14], verbose=False)
