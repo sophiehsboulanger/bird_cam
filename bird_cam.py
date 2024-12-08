@@ -37,8 +37,11 @@ def run_birdcam(DEBUG):
         if DEBUG:
             print("running")
         success, img = cap.read()
-        #results = model(img, stream=True)
+        if DEBUG:
+            print("got frame")
         results = model.predict(img, classes=[14], verbose=False)
+        if DEBUG:
+            print("got results")
         its_a_bird = False
         # coordinates
         for result in results:
