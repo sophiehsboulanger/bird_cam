@@ -4,6 +4,7 @@ import cv2
 import math
 from datetime import datetime
 import argparse
+import platform
 
 def run_birdcam(DEBUG):
     if DEBUG:
@@ -70,8 +71,8 @@ def run_birdcam(DEBUG):
                 thickness = 2
 
                 #cv2.putText(img, classNames[cls], org, font, fontScale, color, thickness)
-
-        cv2.imshow('Webcam', img)
+        if platform.system() != "Linux":
+            cv2.imshow('Webcam', img)
         # check if there are results (birds)
         if its_a_bird:
             now = datetime.now()
