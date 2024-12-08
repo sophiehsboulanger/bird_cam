@@ -38,6 +38,9 @@ def run_birdcam(DEBUG):
         if DEBUG:
             print("running")
         success, img = cap.read()
+        if not success:
+            print("end of feed")
+            break
         if DEBUG:
             print("got frame")
         results = model.predict(img, classes=[14], verbose=False)
